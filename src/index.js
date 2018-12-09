@@ -20,19 +20,29 @@ const feedbackOne = (state = [], action) => {
 
 const feedbackTwo = (state = [], action) => {
   switch (action.type) {
-    case "ADD_UNDERSTANDING": 
-    return action.payload;
+    case "ADD_UNDERSTANDING":
+      return action.payload;
   }
   return state;
 }
 
+const feedbackThree = (state = [], action) => {
+  switch (action.type) {
+    case "ADD_SUPPORT":
+      return action.payload;
+  }
+  return state;
+};
+
 const storeInstance = createStore(
   combineReducers({
     feedbackOne,
-    feedbackTwo
+    feedbackTwo,
+    feedbackThree
   }),
   applyMiddleware(logger)
 );
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById("root"));
 registerServiceWorker();
+
