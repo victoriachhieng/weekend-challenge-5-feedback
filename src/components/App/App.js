@@ -1,17 +1,21 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import './App.css';
-import NavBar from '../Navbar/Navbar';
-import FeedbackOne from '../FeedbackOne/FeedbackOne';
+import React, { Component } from "react";
+import { HashRouter as Router, Route } from "react-router-dom";
+import "./App.css";
+import NavBar from "../Navbar/Navbar";
+import FeedbackOne from "../FeedbackOne/FeedbackOne";
+import FeedbackTwo from "../FeedbackTwo/FeedbackTwo";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <NavBar/>
-        <br/>
-        <FeedbackOne/>
-      </div>
+      <Router>
+        <div>
+          <NavBar />
+          <Route path="/" exact component={FeedbackOne} />
+          <Route path="/2" component={FeedbackTwo} />
+          <Route path="/3" component={FeedbackThree} />
+        </div>
+      </Router>
     );
   }
 }
