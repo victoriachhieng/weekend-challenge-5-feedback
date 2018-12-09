@@ -18,9 +18,18 @@ const feedbackOne = (state = [], action) => {
   }
 };
 
+const feedbackTwo = (state = [], action) => {
+  switch (action.type) {
+    case "ADD_UNDERSTANDING": 
+    return action.payload;
+  }
+  return state;
+}
+
 const storeInstance = createStore(
   combineReducers({
-    feedbackOne
+    feedbackOne,
+    feedbackTwo
   }),
   applyMiddleware(logger)
 );
