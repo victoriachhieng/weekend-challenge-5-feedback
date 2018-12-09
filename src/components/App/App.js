@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from '../Navbar/Navbar';
 import FeedbackOne from '../FeedbackOne/FeedbackOne';
 import FeedbackTwo from '../FeedbackTwo/FeedbackTwo';
+import FeedbackThree from '../FeedbackThree/FeedbackThree';
 
 class App extends Component {
   render() {
@@ -11,8 +12,9 @@ class App extends Component {
       <Router>
         <div>
           <NavBar />
-          <Route path="/" exact component={FeedbackOne}></Route>
-          <Route path="/2" component={FeedbackTwo}></Route>
+          <Route path="/" exact component={FeedbackOne} />
+          <Route path="/2" component={FeedbackTwo} />
+          <Route path="/3" component={FeedbackThree} />
         </div>
       </Router>
     )
