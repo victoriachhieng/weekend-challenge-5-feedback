@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 class FeedbackTwo extends Component {
 
@@ -14,13 +14,13 @@ class FeedbackTwo extends Component {
     }
 
     handleClick = () => {
-        this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state })
+        this.props.dispatch({type: 'ADD_UNDERSTANDING', payload: this.state})
         this.props.history.push('/3')
         alert("You will be directed to step 3");
     }
 
-    render() {
-        return (
+    render(){
+        return(
             <div>
                 <h5>2 of 4 pages</h5>
                 <br />
@@ -33,8 +33,5 @@ class FeedbackTwo extends Component {
         )
     }
 }
-
-
-
 
 export default connect()(FeedbackTwo);
