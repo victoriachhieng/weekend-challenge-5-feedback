@@ -1,38 +1,56 @@
-import React, {Component} from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Card, TextField, Button, Grid } from "@material-ui/core";
+import FeedbackReview from "../FeedbackReview/FeedbackReview";
 
 class FeedbackOne extends Component {
+  state = {
+    feeling: 0
+  };
 
-    state = {
-        feeling: 0
-    }
+  handleChangeFeelings = event => {
+    console.log("in handleChange");
+    this.setState({
+      feeling: event.target.value
+    });
+  };
 
-    handleChangeFeelings = event => {
-        console.log("in handleChange");
-        this.setState({
-            feeling: event.target.value
-        })
-    }
+  handleClick = () => {
+    this.props.dispatch({ type: "ADD_FEELING", payload: this.state });
+    this.props.history.push("/2");
+    alert("You will be directed to step 2");
+  };
 
-    handleClick = () => {
-        this.props.dispatch({ type: "ADD_FEELING", payload: this.state })
-        this.props.history.push('/2');
-        alert('You will be directed to step 2')
-    }
-
-    render() {
-        return (
-            <div>
-                <h5>1 of 4 pages</h5>
-                <br />
-                <h4>How are you feeling today?</h4>
-                <input onChange={this.handleChangeFeelings} type="number" placeholder="response"
+  render() {
+    return (
+      <Grid container justify="center">
+        <Grid item xs={4}>
+          <Card>
+            <center><h1>1 of 4 Pages</h1></center>
+            <br />
+            <center><h4>How are you feeling today?</h4></center>
+            <Grid container justify="center" alignItems="center">
+              <Grid item xs={4}>
+                <TextField
+                  id="name"
+                  label="Feeling"
+                  onChange={this.handleChangeFeelings}
+                  margin="normal"
+                  type="number"
                 />
-                <br />
-                <button onClick={this.handleClick}>Next</button>
-            </div>
-        )
-    }
+              </Grid>
+              <Grid item xs={1}>
+                <Button variant="raised" onClick={this.handleClick}>
+                  Next
+                </Button>
+              </Grid>
+            </Grid>
+            <center><FeedbackReview /></center>
+          </Card>
+        </Grid>
+      </Grid>
+    );
+  }
 }
 
 export default connect()(FeedbackOne);
