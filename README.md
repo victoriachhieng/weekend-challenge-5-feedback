@@ -20,14 +20,21 @@ npm run client
 
 ## Built With
 React
+
 Redux
+
 Node.js
+
 Express
+
 Material UI
+
 CSS
 
 ## Completed Features
 Submit Button which is disabled if survey isn't filled out completely.
 
-## Authors
+Next Button routes you to the next step of the survey 
+
+## Author
 Victoria Chhieng
