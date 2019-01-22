@@ -10,56 +10,36 @@ import { Provider } from "react-redux";
 import logger from "redux-logger";
 
 
-const feedbackOne = (state = [], action) => {
-    switch (action.type) {
-        case "ADD_FEELING":
-            return action.payload;
-        case 'CLEAR_DATA':
-            return action.payload;
-        default:
-    }
-    return state;
-};
-
-const feedbackTwo = (state = [], action) => {
-    switch (action.type) {
-        case "ADD_UNDERSTANDING":
-            return action.payload;
-        case 'CLEAR_DATA':
-            return action.payload;
-        default:
-    }
-    return state;
+let initialState = {
+    feeling: '',
+    understanding: '',
+    support: '',
+    comments: ''
 }
 
-const feedbackThree = (state = [], action) => {
+// Setup reducers
+const feedback = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_SUPPORT":
-            return action.payload;
+        case 'ADD_FEELING':
+            // spread to keep what it was
+            return { ...state, feeling: action.payload }
+        case 'ADD_UNDERSTANDING':
+            return { ...state, understanding: action.payload }
+        case 'ADD_SUPPORT':
+            return { ...state, support: action.payload }
+        case 'ADD_COMMENT':
+            return { ...state, comments: action.payload }
         case 'CLEAR_DATA':
-            return action.payload;
+            return initialState;
         default:
+            return state;
     }
-    return state;
-};
+}
 
-const commentFeedback = (state = [], action) => {
-  switch (action.type) {
-    case "ADD_COMMENT":
-      return action.payload;
-      case 'CLEAR_DATA':
-          return action.payload;
-      default:
-  }
-  return state;
-};
 
 const storeInstance = createStore(
     combineReducers({
-        feedbackOne,
-        feedbackTwo,
-        feedbackThree,
-        commentFeedback
+        feedback
     }),
     applyMiddleware(logger)
 );

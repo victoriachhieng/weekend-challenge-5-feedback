@@ -16,7 +16,9 @@ class FeedbackOne extends Component {
   };
 
   handleClick = () => {
-    this.props.dispatch({ type: "ADD_FEELING", payload: this.state });
+    // collect data and send to redux
+    this.props.dispatch({ type: "ADD_FEELING", payload: this.state.feeling });
+    // direct to page 2
     this.props.history.push("/2");
     alert("You will be directed to step 2");
   };

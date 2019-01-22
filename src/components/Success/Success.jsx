@@ -4,6 +4,7 @@ import { Card, Button, Grid } from '@material-ui/core';
 import FeedbackReview from '../FeedbackReview/FeedbackReview';
 
 class Success extends Component {
+  
   state = {};
   //resets data in redux and allows user to leave new feedback
   newFeedback = () => {

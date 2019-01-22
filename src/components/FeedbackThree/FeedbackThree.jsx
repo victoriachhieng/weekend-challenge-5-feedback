@@ -15,7 +15,7 @@ class FeedbackThree extends Component {
   };
 
   handleClick = () => {
-    this.props.dispatch({ type: "ADD_SUPPORT", payload: this.state });
+    this.props.dispatch({ type: "ADD_SUPPORT", payload: this.state.support });
       this.props.history.push('/4');
       alert('You will be directed to step 4')
   };

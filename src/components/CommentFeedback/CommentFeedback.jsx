@@ -16,7 +16,7 @@ class CommentFeedback extends Component {
   };
 
   handleClick = () => {
-    this.props.dispatch({ type: "ADD_COMMENT", payload: this.state });
+    this.props.dispatch({ type: "ADD_COMMENT", payload: this.state.comments });
     this.props.history.push("/5");
     alert("Feedback Completed!");
   };

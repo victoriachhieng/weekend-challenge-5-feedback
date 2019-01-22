@@ -15,7 +15,7 @@ class FeedbackTwo extends Component {
   };
 
   handleClick = () => {
-    this.props.dispatch({ type: "ADD_UNDERSTANDING", payload: this.state });
+    this.props.dispatch({ type: "ADD_UNDERSTANDING", payload: this.state.understanding });
     this.props.history.push("/3");
     alert("You will be directed to step 3");
   };
